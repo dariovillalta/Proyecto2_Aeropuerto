@@ -207,6 +207,23 @@
           </property>
          </widget>
         </item>
+        <item row="5" column="2">
+         <widget class="QLabel" name="label_9">
+          <property name="text">
+           <string>Salida</string>
+          </property>
+         </widget>
+        </item>
+        <item row="5" column="3">
+         <widget class="QLabel" name="lb_salida">
+          <property name="text">
+           <string>NULL</string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+          </property>
+         </widget>
+        </item>
        </layout>
       </widget>
      </widget>
@@ -237,16 +254,19 @@
     </property>
     <widget class="QMenu" name="menuCrear_Vuelo">
      <property name="title">
-      <string>Crear Vuelo</string>
+      <string>Manejo Vuelo</string>
      </property>
      <addaction name="actionAgregar_Vuelo"/>
      <addaction name="actionModificar_Vuelo"/>
+     <addaction name="actionEliminar_Vuelo"/>
     </widget>
     <widget class="QMenu" name="menuCrear_Avion">
      <property name="title">
-      <string>Crear Avion</string>
+      <string>Manejo Avion</string>
      </property>
      <addaction name="actionAgregar_Avion"/>
+     <addaction name="actionModificar_Avion"/>
+     <addaction name="actionEliminar_Avion"/>
     </widget>
     <addaction name="menuCrear_Vuelo"/>
     <addaction name="menuCrear_Avion"/>
@@ -272,6 +292,21 @@
   <action name="actionCalcular_Horas">
    <property name="text">
     <string>Calcular Horas</string>
+   </property>
+  </action>
+  <action name="actionEliminar_Vuelo">
+   <property name="text">
+    <string>Eliminar Vuelo</string>
+   </property>
+  </action>
+  <action name="actionModificar_Avion">
+   <property name="text">
+    <string>Modificar Avion</string>
+   </property>
+  </action>
+  <action name="actionEliminar_Avion">
+   <property name="text">
+    <string>Eliminar Avion</string>
    </property>
   </action>
  </widget>

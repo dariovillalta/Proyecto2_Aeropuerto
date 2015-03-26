@@ -19,7 +19,6 @@
 #include <QtWidgets/QGridLayout>
 #include <QtWidgets/QHeaderView>
 #include <QtWidgets/QLabel>
-#include <QtWidgets/QLineEdit>
 #include <QtWidgets/QPushButton>
 #include <QtWidgets/QSpinBox>
 
@@ -40,8 +39,6 @@ public:
     QDoubleSpinBox *sp_pesoMaximo;
     QLabel *label_3;
     QDoubleSpinBox *sp_altura;
-    QLabel *label_8;
-    QLineEdit *tf_marca;
     QLabel *label_4;
     QDoubleSpinBox *sp_longitud;
     QLabel *label_5;
@@ -53,7 +50,7 @@ public:
     {
         if (ModificarAvion->objectName().isEmpty())
             ModificarAvion->setObjectName(QStringLiteral("ModificarAvion"));
-        ModificarAvion->resize(525, 237);
+        ModificarAvion->resize(564, 250);
         gridLayout_2 = new QGridLayout(ModificarAvion);
         gridLayout_2->setObjectName(QStringLiteral("gridLayout_2"));
         gridLayout = new QGridLayout();
@@ -115,17 +112,6 @@ public:
 
         gridLayout->addWidget(sp_altura, 2, 1, 1, 1);
 
-        label_8 = new QLabel(ModificarAvion);
-        label_8->setObjectName(QStringLiteral("label_8"));
-        label_8->setFont(font);
-
-        gridLayout->addWidget(label_8, 2, 2, 1, 1);
-
-        tf_marca = new QLineEdit(ModificarAvion);
-        tf_marca->setObjectName(QStringLiteral("tf_marca"));
-
-        gridLayout->addWidget(tf_marca, 2, 3, 1, 1);
-
         label_4 = new QLabel(ModificarAvion);
         label_4->setObjectName(QStringLiteral("label_4"));
         label_4->setFont(font);
@@ -175,10 +161,9 @@ public:
         label_2->setText(QApplication::translate("ModificarAvion", "Capacidad de Pasajeros", 0));
         label_7->setText(QApplication::translate("ModificarAvion", "Peso Maximo", 0));
         label_3->setText(QApplication::translate("ModificarAvion", "Altura", 0));
-        label_8->setText(QApplication::translate("ModificarAvion", "Modelo", 0));
         label_4->setText(QApplication::translate("ModificarAvion", "Longitud", 0));
         label_5->setText(QApplication::translate("ModificarAvion", "Velocidad Maxima", 0));
-        pushButton->setText(QApplication::translate("ModificarAvion", "Agregar Avion", 0));
+        pushButton->setText(QApplication::translate("ModificarAvion", "Modificar Avion", 0));
     } // retranslateUi
 
 };

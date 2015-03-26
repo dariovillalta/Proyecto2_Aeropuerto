@@ -17,7 +17,7 @@ class CrearAvion : public QDialog
     Q_OBJECT
 
 public:
-    explicit CrearAvion(QWidget *parent = 0, vector<Vuelo>* miVuelos =0, vector<Avion>* miAviones =0);
+    explicit CrearAvion(QWidget *parent = 0, vector<Vuelo*>* miVuelos =0, vector<Avion*>* miAviones =0);
     ~CrearAvion();
 
 private slots:
@@ -25,8 +25,8 @@ private slots:
 
 private:
     Ui::CrearAvion *ui;
-    vector<Vuelo>* miVuelos;
-    vector<Avion>* miAviones;
+    vector<Vuelo*>* miVuelos;
+    vector<Avion*>* miAviones;
     void cargarCombo();
     //void guardarAviones(Avion miAvion);
 };

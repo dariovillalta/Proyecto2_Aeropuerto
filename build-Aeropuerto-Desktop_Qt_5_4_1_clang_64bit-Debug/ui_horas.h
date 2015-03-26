@@ -15,7 +15,6 @@
 #include <QtWidgets/QButtonGroup>
 #include <QtWidgets/QComboBox>
 #include <QtWidgets/QDialog>
-#include <QtWidgets/QDoubleSpinBox>
 #include <QtWidgets/QGridLayout>
 #include <QtWidgets/QHeaderView>
 #include <QtWidgets/QLabel>
@@ -28,49 +27,33 @@ class Ui_Horas
 {
 public:
     QGridLayout *gridLayout;
-    QLineEdit *lineEdit;
-    QLineEdit *lineEdit_2;
-    QLabel *label_2;
-    QLabel *label;
-    QPushButton *pushButton;
+    QPushButton *pushButton_2;
+    QComboBox *comboBox;
     QLineEdit *lineEdit_3;
     QLabel *label_3;
     QLabel *label_4;
-    QComboBox *comboBox;
-    QDoubleSpinBox *doubleSpinBox;
-    QPushButton *pushButton_2;
+    QLabel *label;
+    QPushButton *pushButton;
+    QLineEdit *lineEdit_2;
+    QLabel *label_2;
+    QLineEdit *lineEdit;
 
     void setupUi(QDialog *Horas)
     {
         if (Horas->objectName().isEmpty())
             Horas->setObjectName(QStringLiteral("Horas"));
-        Horas->resize(432, 186);
+        Horas->resize(432, 205);
         gridLayout = new QGridLayout(Horas);
         gridLayout->setObjectName(QStringLiteral("gridLayout"));
-        lineEdit = new QLineEdit(Horas);
-        lineEdit->setObjectName(QStringLiteral("lineEdit"));
+        pushButton_2 = new QPushButton(Horas);
+        pushButton_2->setObjectName(QStringLiteral("pushButton_2"));
 
-        gridLayout->addWidget(lineEdit, 0, 2, 1, 1);
+        gridLayout->addWidget(pushButton_2, 4, 0, 1, 1);
 
-        lineEdit_2 = new QLineEdit(Horas);
-        lineEdit_2->setObjectName(QStringLiteral("lineEdit_2"));
+        comboBox = new QComboBox(Horas);
+        comboBox->setObjectName(QStringLiteral("comboBox"));
 
-        gridLayout->addWidget(lineEdit_2, 1, 2, 1, 1);
-
-        label_2 = new QLabel(Horas);
-        label_2->setObjectName(QStringLiteral("label_2"));
-
-        gridLayout->addWidget(label_2, 1, 0, 1, 1);
-
-        label = new QLabel(Horas);
-        label->setObjectName(QStringLiteral("label"));
-
-        gridLayout->addWidget(label, 0, 0, 1, 1);
-
-        pushButton = new QPushButton(Horas);
-        pushButton->setObjectName(QStringLiteral("pushButton"));
-
-        gridLayout->addWidget(pushButton, 5, 2, 1, 1);
+        gridLayout->addWidget(comboBox, 3, 2, 1, 1);
 
         lineEdit_3 = new QLineEdit(Horas);
         lineEdit_3->setObjectName(QStringLiteral("lineEdit_3"));
@@ -87,20 +70,30 @@ public:
 
         gridLayout->addWidget(label_4, 3, 0, 1, 1);
 
-        comboBox = new QComboBox(Horas);
-        comboBox->setObjectName(QStringLiteral("comboBox"));
+        label = new QLabel(Horas);
+        label->setObjectName(QStringLiteral("label"));
 
-        gridLayout->addWidget(comboBox, 3, 2, 1, 1);
+        gridLayout->addWidget(label, 0, 0, 1, 1);
 
-        doubleSpinBox = new QDoubleSpinBox(Horas);
-        doubleSpinBox->setObjectName(QStringLiteral("doubleSpinBox"));
+        pushButton = new QPushButton(Horas);
+        pushButton->setObjectName(QStringLiteral("pushButton"));
 
-        gridLayout->addWidget(doubleSpinBox, 4, 2, 1, 1);
+        gridLayout->addWidget(pushButton, 4, 2, 1, 1);
 
-        pushButton_2 = new QPushButton(Horas);
-        pushButton_2->setObjectName(QStringLiteral("pushButton_2"));
+        lineEdit_2 = new QLineEdit(Horas);
+        lineEdit_2->setObjectName(QStringLiteral("lineEdit_2"));
 
-        gridLayout->addWidget(pushButton_2, 5, 0, 1, 1);
+        gridLayout->addWidget(lineEdit_2, 1, 2, 1, 1);
+
+        label_2 = new QLabel(Horas);
+        label_2->setObjectName(QStringLiteral("label_2"));
+
+        gridLayout->addWidget(label_2, 1, 0, 1, 1);
+
+        lineEdit = new QLineEdit(Horas);
+        lineEdit->setObjectName(QStringLiteral("lineEdit"));
+
+        gridLayout->addWidget(lineEdit, 0, 2, 1, 1);
 
 
         retranslateUi(Horas);
@@ -111,12 +104,12 @@ public:
     void retranslateUi(QDialog *Horas)
     {
         Horas->setWindowTitle(QApplication::translate("Horas", "Dialog", 0));
-        label_2->setText(QApplication::translate("Horas", "Velocidad", 0));
-        label->setText(QApplication::translate("Horas", "Distancia", 0));
-        pushButton->setText(QApplication::translate("Horas", "Calcular", 0));
+        pushButton_2->setText(QApplication::translate("Horas", "Update", 0));
         label_3->setText(QApplication::translate("Horas", "Presion", 0));
         label_4->setText(QApplication::translate("Horas", "Modelo", 0));
-        pushButton_2->setText(QApplication::translate("Horas", "Update", 0));
+        label->setText(QApplication::translate("Horas", "Distancia", 0));
+        pushButton->setText(QApplication::translate("Horas", "Calcular", 0));
+        label_2->setText(QApplication::translate("Horas", "Velocidad", 0));
     } // retranslateUi
 
 };

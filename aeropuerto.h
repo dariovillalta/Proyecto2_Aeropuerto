@@ -39,11 +39,17 @@ private slots:
 
     void on_actionModificar_Vuelo_triggered();
 
+    void on_actionEliminar_Vuelo_triggered();
+
+    void on_actionModificar_Avion_triggered();
+
+    void on_actionEliminar_Avion_triggered();
+
 private:
     Ui::Aeropuerto *ui;
-    vector<Vuelo>* miVuelos;
-    vector<Avion>* miAviones;
-    void cargarTabla(vector<Vuelo>*);
+    vector<Vuelo*>* miVuelos;
+    vector<Avion*>* miAviones;
+    void cargarTabla(/*vector<Vuelo>**/);
     void loadCombo();
 };
 

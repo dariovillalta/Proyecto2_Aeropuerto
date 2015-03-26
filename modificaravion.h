@@ -15,13 +15,18 @@ class ModificarAvion : public QDialog
     Q_OBJECT
 
 public:
-    explicit ModificarAvion(QWidget *parent = 0, vector<Vuelo>* miVuelos =0, vector<Avion>* miAviones =0);
+    explicit ModificarAvion(QWidget *parent = 0, vector<Vuelo*>* miVuelos =0, vector<Avion*>* miAviones =0);
     ~ModificarAvion();
+
+private slots:
+    void on_pushButton_clicked();
+
+    void on_comboBox_currentIndexChanged(int index);
 
 private:
     Ui::ModificarAvion *ui;
-    vector<Vuelo>* miVuelos;
-    vector<Avion>* miAviones;
+    vector<Vuelo*>* miVuelos;
+    vector<Avion*>* miAviones;
     void cargar();
 };
 

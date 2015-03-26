@@ -9,14 +9,14 @@
 
 using namespace std;
 
-CrearVuelo::CrearVuelo(QWidget *parent, vector<Vuelo>* miVuelos, vector<Avion>* miAviones) :
+CrearVuelo::CrearVuelo(QWidget *parent, vector<Vuelo*>* miVuelos, vector<Avion*>* miAviones) :
     QDialog(parent),
     ui(new Ui::CrearVuelo)
 {
     ui->setupUi(this);
     this->miVuelos = miVuelos;
     this->miAviones = miAviones;
-    loadAviones(miAviones);
+    loadAviones();
 }
 
 CrearVuelo::~CrearVuelo()
@@ -32,15 +32,14 @@ void CrearVuelo::on_pushButton_clicked()
     try{
         if(miAviones->size() > 0){
             numAvion = ui->comboBox->currentIndex();
-            avion = miAviones->at(numAvion);
+            avion = *miAviones->at(numAvion);
             numeroVuelo = ui->tf_numeroVuelo->text();
             hora = ui->tf_hora->text();
             destino = ui->tf_destino->text();
             llegada = ui->tf_salida->text();
             clases = ui->sp_clases->value();
-            //Avion avion, int numeroVuelo, string lugarLLegada, string lugarDestino, int numClases, string hora
-            Vuelo miVuelo(avion, numeroVuelo.toInt(), llegada.toStdString(), destino.toStdString(), clases, hora.toStdString());
-            miVuelos->push_back(miVuelo);
+            miVuelos->push_back( new Vuelo (avion, numeroVuelo.toInt(), llegada.toStdString(),
+                                            destino.toStdString(), clases, hora.toStdString()) );
             QMessageBox::about(this, "title", "Agregado con exito.");
         } else
             QMessageBox::critical(this, "title", "No hay aviones Creados!");
@@ -53,13 +52,11 @@ void CrearVuelo::on_pushButton_clicked()
     }
 }
 
-void CrearVuelo::loadAviones(vector<Avion>* miAviones){
+void CrearVuelo::loadAviones(){
     ui->comboBox->clear();
     if(miAviones->size() > 0){
         for(int i = 0; i < miAviones->size(); i++){
-            //ui->comboBox->addItem(miAviones->at(i).getModelo());
-            //cout << miAviones->at(i).getModelo() << endl;
-            ui->comboBox->addItem( QString::fromStdString( ((Avion)miAviones->at(i)).getModelo()) );
+            ui->comboBox->addItem( QString::fromStdString( miAviones->at(i)->getModelo()) );
         }
     }else
         ui->comboBox->addItem("No hay Aviones");

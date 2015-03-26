@@ -13,10 +13,9 @@ class Horas;
 class Horas : public QDialog
 {
     Q_OBJECT
-    int num;
 
 public:
-    explicit Horas(QWidget *parent = 0, vector<Vuelo>* miVuelos =0, vector<Avion>* miAviones =0);
+    explicit Horas(QWidget *parent = 0, vector<Vuelo*>* miVuelos =0, vector<Avion*>* miAviones =0);
     ~Horas();
 
 private slots:
@@ -28,8 +27,8 @@ private slots:
 
 private:
     Ui::Horas *ui;
-    vector<Vuelo>* miVuelos;
-    vector<Avion>* miAviones;
+    vector<Vuelo*>* miVuelos;
+    vector<Avion*>* miAviones;
     void cargar();
 };
 

@@ -15,7 +15,7 @@
 
 using namespace std;
 
-CrearAvion::CrearAvion(QWidget *parent, vector<Vuelo>* miVuelos, vector<Avion>* miAviones) :
+CrearAvion::CrearAvion(QWidget *parent, vector<Vuelo*>* miVuelos, vector<Avion*>* miAviones) :
     QDialog(parent),
     ui(new Ui::CrearAvion)
 {
@@ -32,8 +32,6 @@ CrearAvion::~CrearAvion()
 
 void CrearAvion::on_pushButton_clicked()
 {
-    //int capacidadTripulacion, int capacidadPasajeros, float longitud, float altura,
-    //float pesoVacio, float pesoMaximo, int velocidadMaxima
     int capacidadTripulacion, capacidadPasajeros, velocidadMaxima;
     float longitud, altura, pesoVacio, pesoMaximo;
     try{
@@ -45,20 +43,13 @@ void CrearAvion::on_pushButton_clicked()
         pesoMaximo = ui->sp_pesoMaximo->value();
         velocidadMaxima = ui->sp_velocidadMaxima->value();
 
-        //Avion miAvion(capacidadTripulacion, capacidadPasajeros, longitud, altura, pesoVacio, pesoMaximo, velocidadMaxima);
-        //int capacidadTripulacion, int capacidadPasajeros, float longitud, float altura, float pesoVacio,
-        //float pesoMaximo, int velocidadMaxima
-
         if(ui->comboBox->itemText( ui->comboBox->currentIndex() ) == "Boeing 747"){
-            Boeing747 bo("Boeing Commercial Airplanes", "Boeing 747", capacidadTripulacion, capacidadPasajeros, longitud,
-                         altura, pesoVacio, pesoMaximo, velocidadMaxima);
-            miAviones->push_back(bo);
+            miAviones->push_back( new Boeing747 ("Boeing Commercial Airplanes", "Boeing 747", capacidadTripulacion,
+                                                   capacidadPasajeros, longitud, altura, pesoVacio, pesoMaximo, velocidadMaxima) );
             QMessageBox::about(this, "title", "Agregado con Exito!");
-            cout << miAviones->at(0).getMarca() << endl;
         } else if(ui->comboBox->itemText( ui->comboBox->currentIndex() ) == "Airbus 380"){
-            AirbusA380 a("Airbus", "Airbus A380", capacidadTripulacion, capacidadPasajeros, longitud,
-                         altura, pesoVacio, pesoMaximo, velocidadMaxima);
-            miAviones->push_back(a);
+            miAviones->push_back( new AirbusA380 ("Airbus", "Airbus A380", capacidadTripulacion, capacidadPasajeros, longitud,
+                                               altura, pesoVacio, pesoMaximo, velocidadMaxima) );
             QMessageBox::about(this, "title", "Agregado con Exito!");
         }
 

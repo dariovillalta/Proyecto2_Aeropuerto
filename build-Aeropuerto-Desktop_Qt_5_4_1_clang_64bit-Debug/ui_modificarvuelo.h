@@ -40,7 +40,7 @@ public:
     QLineEdit *tf_numeroVuelo;
     QLineEdit *tf_salida;
     QLabel *label_3;
-    QComboBox *comboBox;
+    QLineEdit *tf_avion;
     QPushButton *pushButton;
     QComboBox *comboBox_2;
 
@@ -118,10 +118,10 @@ public:
 
         gridLayout->addWidget(label_3, 1, 0, 1, 2);
 
-        comboBox = new QComboBox(ModificarVuelo);
-        comboBox->setObjectName(QStringLiteral("comboBox"));
+        tf_avion = new QLineEdit(ModificarVuelo);
+        tf_avion->setObjectName(QStringLiteral("tf_avion"));
 
-        gridLayout->addWidget(comboBox, 0, 1, 1, 2);
+        gridLayout->addWidget(tf_avion, 0, 1, 1, 2);
 
 
         gridLayout_2->addLayout(gridLayout, 0, 0, 1, 1);

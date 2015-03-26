@@ -37,6 +37,9 @@ public:
     QAction *actionModificar_Vuelo;
     QAction *actionAgregar_Avion;
     QAction *actionCalcular_Horas;
+    QAction *actionEliminar_Vuelo;
+    QAction *actionModificar_Avion;
+    QAction *actionEliminar_Avion;
     QWidget *centralWidget;
     QGridLayout *gridLayout_2;
     QPushButton *pushButton;
@@ -63,6 +66,8 @@ public:
     QPushButton *pushButton_3;
     QLabel *lb_numVuelo;
     QPushButton *pushButton_4;
+    QLabel *label_9;
+    QLabel *lb_salida;
     QToolBar *mainToolBar;
     QStatusBar *statusBar;
     QMenuBar *menuBar;
@@ -83,6 +88,12 @@ public:
         actionAgregar_Avion->setObjectName(QStringLiteral("actionAgregar_Avion"));
         actionCalcular_Horas = new QAction(Aeropuerto);
         actionCalcular_Horas->setObjectName(QStringLiteral("actionCalcular_Horas"));
+        actionEliminar_Vuelo = new QAction(Aeropuerto);
+        actionEliminar_Vuelo->setObjectName(QStringLiteral("actionEliminar_Vuelo"));
+        actionModificar_Avion = new QAction(Aeropuerto);
+        actionModificar_Avion->setObjectName(QStringLiteral("actionModificar_Avion"));
+        actionEliminar_Avion = new QAction(Aeropuerto);
+        actionEliminar_Avion->setObjectName(QStringLiteral("actionEliminar_Avion"));
         centralWidget = new QWidget(Aeropuerto);
         centralWidget->setObjectName(QStringLiteral("centralWidget"));
         gridLayout_2 = new QGridLayout(centralWidget);
@@ -214,6 +225,17 @@ public:
 
         gridLayout->addWidget(pushButton_4, 9, 2, 1, 1);
 
+        label_9 = new QLabel(page_2);
+        label_9->setObjectName(QStringLiteral("label_9"));
+
+        gridLayout->addWidget(label_9, 5, 2, 1, 1);
+
+        lb_salida = new QLabel(page_2);
+        lb_salida->setObjectName(QStringLiteral("lb_salida"));
+        lb_salida->setAlignment(Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter);
+
+        gridLayout->addWidget(lb_salida, 5, 3, 1, 1);
+
         stackedWidget->addWidget(page_2);
 
         gridLayout_2->addWidget(stackedWidget, 0, 0, 2, 1);
@@ -242,7 +264,10 @@ public:
         menuFile->addAction(actionCalcular_Horas);
         menuCrear_Vuelo->addAction(actionAgregar_Vuelo);
         menuCrear_Vuelo->addAction(actionModificar_Vuelo);
+        menuCrear_Vuelo->addAction(actionEliminar_Vuelo);
         menuCrear_Avion->addAction(actionAgregar_Avion);
+        menuCrear_Avion->addAction(actionModificar_Avion);
+        menuCrear_Avion->addAction(actionEliminar_Avion);
 
         retranslateUi(Aeropuerto);
 
@@ -259,6 +284,9 @@ public:
         actionModificar_Vuelo->setText(QApplication::translate("Aeropuerto", "Modificar Vuelo", 0));
         actionAgregar_Avion->setText(QApplication::translate("Aeropuerto", "Agregar Avion", 0));
         actionCalcular_Horas->setText(QApplication::translate("Aeropuerto", "Calcular Horas", 0));
+        actionEliminar_Vuelo->setText(QApplication::translate("Aeropuerto", "Eliminar Vuelo", 0));
+        actionModificar_Avion->setText(QApplication::translate("Aeropuerto", "Modificar Avion", 0));
+        actionEliminar_Avion->setText(QApplication::translate("Aeropuerto", "Eliminar Avion", 0));
         pushButton->setText(QApplication::translate("Aeropuerto", "->", 0));
         pushButton_2->setText(QApplication::translate("Aeropuerto", "<-", 0));
         label_5->setText(QApplication::translate("Aeropuerto", "Clase", 0));
@@ -275,9 +303,11 @@ public:
         pushButton_3->setText(QApplication::translate("Aeropuerto", "Comprar", 0));
         lb_numVuelo->setText(QApplication::translate("Aeropuerto", "NULL", 0));
         pushButton_4->setText(QApplication::translate("Aeropuerto", "Update", 0));
+        label_9->setText(QApplication::translate("Aeropuerto", "Salida", 0));
+        lb_salida->setText(QApplication::translate("Aeropuerto", "NULL", 0));
         menuFile->setTitle(QApplication::translate("Aeropuerto", "File", 0));
-        menuCrear_Vuelo->setTitle(QApplication::translate("Aeropuerto", "Crear Vuelo", 0));
-        menuCrear_Avion->setTitle(QApplication::translate("Aeropuerto", "Crear Avion", 0));
+        menuCrear_Vuelo->setTitle(QApplication::translate("Aeropuerto", "Manejo Vuelo", 0));
+        menuCrear_Avion->setTitle(QApplication::translate("Aeropuerto", "Manejo Avion", 0));
     } // retranslateUi
 
 };

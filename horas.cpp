@@ -8,7 +8,7 @@
 
 using namespace std;
 
-Horas::Horas(QWidget *parent, vector<Vuelo>* miVuelos, vector<Avion>* miAviones) :
+Horas::Horas(QWidget *parent, vector<Vuelo*>* miVuelos, vector<Avion*>* miAviones) :
     QDialog(parent),
     ui(new Ui::Horas)
 {
@@ -25,12 +25,13 @@ Horas::~Horas()
 
 void Horas::cargar(){
     ui->comboBox->clear();
-    if(miAviones->size() > 0){
-        for( int i = 0; i < miAviones->size(); i++){
-            ui->comboBox->addItem( QString::number( ((Vuelo)miVuelos->at(i)).getNumeroVuelo() ) );
+    if(this->miAviones->size() > 0){
+        for(unsigned int i = 0; i < this->miAviones->size(); i++){
+            ui->comboBox->addItem( QString::fromStdString( this->miAviones->at(i)->getModelo() ) );
         }
-    }else
+    }else{
         ui->comboBox->addItem("No hay Aviones");
+    }
 }
 
 void Horas::on_comboBox_currentIndexChanged(int index)
@@ -48,24 +49,13 @@ void Horas::on_pushButton_clicked()
         distancia = ui->lineEdit->text().toDouble();
         velocidad = ui->lineEdit_2->text().toDouble() ;
         presion = ui->lineEdit_3->text().toDouble();
-        //int i = ui->comboBox->currentIndex();
-        //double hora;
-        for(int i = 0; i < miAviones->size(); i++){
-            cout << ((Vuelo)miVuelos->at(i)).getNumeroVuelo();
-        }
-        cout << "Ingrese cual desea modificar: " << endl;
-        cin >> this->num;
-        double hora = ((Avion)miAviones->at(num)).horas(distancia, velocidad, presion);
-        /*if(ui->comboBox->itemText( ui->comboBox->currentIndex() ) == "Airbus 380"){
-            AirbusA380 a("Airbus", "Airbus A380", 22, 550, 20.1,
-                         17.8, 10002, 100003, 901);
-            hora = ((Avion)a).horas(distancia, velocidad, presion);
-        }else{
-            Boeing747 bo("Boeing Commercial Airplanes", "Boeing 747", 20, 550, 20.1,
-                         19.2, 10000, 10000, 901);
-            hora = ((Avion)bo).horas(distancia, velocidad, presion);
-        }*/
-        ui->doubleSpinBox->setValue(hora);
+
+        int num = ui->comboBox->currentIndex();
+        double hora = miAviones->at(num)->horas(distancia, velocidad, presion);
+        cout << hora << endl;
+        hora = miAviones->at(num)->horas(distancia, velocidad, presion);
+        QString str = QString("%1 horas").arg(hora, 0, 'g', 6);
+        QMessageBox::information(this, "Tiempo", "Valor: "+ str+".\n");
         ui->lineEdit->setText("");
         ui->lineEdit_2->setText("");
         ui->lineEdit_3->setText("");
