@@ -58,7 +58,7 @@ void ModificarAvion::on_pushButton_clicked()
         miAviones->at(sele)->setpesoVacio(vacio);
         miAviones->at(sele)->setpesoMaximo(maximo);
         miAviones->at(sele)->setvelocidadMaxima(velocidad);
-        QMessageBox::critical(this, "title", "Modificado con exito!");
+        QMessageBox::about(this, "title", "Modificado con exito!");
     } catch(...){
         QMessageBox::critical(this, "title", "Error!");
     }

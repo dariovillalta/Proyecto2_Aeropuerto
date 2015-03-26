@@ -87,6 +87,7 @@ void Aeropuerto::cargarTabla(/*miVuelos*/){
         ui->tableWidget->setItem(fila, 0, new QTableWidgetItem( QString::number(numVuelo) ));
         ui->tableWidget->setItem(fila, 1, new QTableWidgetItem( destino ));
         ui->tableWidget->setItem(fila, 2, new QTableWidgetItem(hora));
+        ui->tableWidget->horizontalHeader()->setStretchLastSection(true);
     }
 }
 
